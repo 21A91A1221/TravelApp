@@ -1,0 +1,87 @@
+/* bookingform.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#form {
+    background-color: #343a40; /* Dark background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+#content {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#content i {
+    color: #ffffff;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+#input-group {
+    border: none;
+    background-color: #495057;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#input-group:focus {
+    outline: none;
+    border: 2px solid #007bff;
+    background-color: #343a40;
+}
+
+select#input-group {
+    appearance: none; /* Removes default styling for select elements */
+    background: #495057 url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCI+PHBhdGggZD0iTTAgMkwxNCA3bC00LTQtMTRzLTEtMiA0LTQtMTQtMi00eiIvPjwvc3ZnPg==') no-repeat right center; /* Custom arrow */
+    background-color: #495057;
+    color: #ffffff;
+}
+
+select#input-group option {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+#submit-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #0056b3;
+}
+
+#submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
