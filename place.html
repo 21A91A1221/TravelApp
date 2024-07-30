@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places to Stay</title>
+    <style>
+        /* Resetting default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #007bff;
+        }
+
+        /* Section for listing places */
+        section#places {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+        }
+
+        /* Listing item styling */
+        .listing-item {
+            flex: 0 0 calc(33.333% - 40px);
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .listing-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .listing-item img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent sizing */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 10px;
+        }
+
+        .listing-item h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 1.5em;
+            color: #007bff;
+        }
+
+        .listing-item p {
+            margin: 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .listing-item .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid navy;
+            border-radius: 5px;
+            color: navy;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .listing-item .btn:hover {
+            background-color: navy;
+            border: none;
+            color: white;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .listing-item {
+                flex: 0 0 calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .listing-item {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<header>
+    <h1>Explore Places</h1>
+</header>
+<body>
+    <section id="places" class="listing">
+        <div class="listing-item">
+            <img src="beach_house.jpg" alt="Beautiful Beach House">
+            <h3>Beach House</h3>
+            <p><strong>Location: </strong>Beachside, Maldives</p>
+            <p>Price: $200/Night</p>
+        </div>
+        <div class="listing-item">
+            <img src="forest.jpg" alt="Beautiful Forest">
+            <h3>Delta Forest</h3>
+            <p><strong>Location: </strong>Mississippi Flyway, America</p>
+            <p>Price: $120/Day</p>
+        </div>
+        <div class="listing-item">
+            <img src="mount.jpg" alt="Beautiful Mountain">
+            <h3>Mountain Fuji</h3>
+            <p><strong>Location: </strong>Island of Honshu, Japan</p>
+            <p>Price: $95/Day</p>
+        </div>
+        <div class="listing-item">
+            <img src="river.jpg" alt="Beautiful River">
+            <h3>River Godavari</h3>
+            <p><strong>Location: </strong>Rajamahendravaram, India</p>
+            <p>Price: $30/Day</p>
+        </div>
+        <div class="listing-item">
+            <img src="paris.jpg" alt="Beautiful Place">
+            <h3>Paris</h3>
+            <p><strong>Location: </strong>Along the Seine River, France</p>
+            <p>Price: $112/Day</p>
+        </div>
+        <div class="listing-item">
+            <img src="singapore.jpg" alt="Beautiful Place">
+            <h3>Singapore</h3>
+            <p><strong>Location: </strong>Southern end of the Malay Peninsula, Asia</p>
+            <p>Price: $135/Day</p>
+        </div>
+    </section>
+</body>
+</html>
