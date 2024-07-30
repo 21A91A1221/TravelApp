@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="registerform.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <form id="register-form" class="form-group">
+            <div id="form">
+                <h1 class="text-white text-center">Registering Now</h1>
+                <div id="first-group">
+                    <div id="content">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" id="input-group" placeholder="First name" name="first-name" required>
+                    </div>
+                    <div id="content">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" id="input-group" placeholder="Last name" name="last-name" required>
+                    </div>
+                    <div id="content">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <div class="input-group">
+                            <select id="country-code" name="country-code" class="custom-select" required>
+                                <option value="">Country Code</option>
+                                <option value="+1">+1 (US)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+91">+91 (India)</option>
+                                <!-- Add more country codes as needed -->
+                            </select>
+                            <input type="text" id="phone-number" placeholder="Phone number" name="phone-number" class="form-control" required>
+                        </div>
+                    </div>
+                    <div id="content">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <input type="date" id="input-group" placeholder="Departure Date" name="departure-date" required>
+                    </div>
+                    <div id="content">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <select id="input-group" name="guests" style="background-color: #444; color: #fff;" required>
+                            <option value="">No. of guests</option>
+                            <option value="1-5">1-5</option>
+                            <option value="6-10">6-10</option>
+                            <option value="11-20">11-20</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="content">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <input type="email" id="input-group" placeholder="Email" name="email" required>
+                </div>
+                <div id="content">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <input type="date" id="input-group" placeholder="Arrival Date" name="arrival-date" required>
+                </div>
+                <div id="content">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <select id="input-group" name="room-type" style="background-color: #444; color: #fff;" required>
+                        <option value="">Room Type</option>
+                        <option value="AC">AC</option>
+                        <option value="Non-AC">Non-AC</option>
+                        <option value="Single Bed">Single Bed</option>
+                        <option value="Double Bed">Double Bed</option>
+                    </select>
+                </div>
+                <div id="content">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <input type="text" id="input-group" placeholder="Place to Visit" name="place-to-visit" required>
+                </div>
+                <button type="submit" id="submit-btn">Register Now</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get the phone number input value
+            var phoneNumber = document.getElementById('phone-number').value;
+
+            // Check if the phone number is exactly 10 digits
+            if (phoneNumber.length !== 10) {
+                alert('Invalid number. Please enter a 10-digit phone number.');
+                return;
+            }
+
+            // Check if the form is valid
+            if (this.checkValidity()) {
+                // Display a success message
+                alert('Successfully Registered!');
+                
+                // Optionally, clear the form fields
+                this.reset();
+                
+                // Redirect to the home page
+                window.location.href = 'index.html';
+            } else {
+                // If the form is not valid, show validation messages
+                this.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>
