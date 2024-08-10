@@ -9,57 +9,61 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="form-container">
         <form id="register-form" class="form-group">
-            <div id="form">
-                <h1 class="text-white text-center">Registering Now</h1>
-                <div id="first-group">
-                    <div id="content">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="First name" name="first-name" required>
-                    </div>
-                    <div id="content">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="Last name" name="last-name" required>
-                    </div>
-                    <div id="content">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <div class="input-group">
-                            <select id="country-code" name="country-code" class="custom-select" required>
-                                <option value="">Country Code</option>
-                                <option value="+1">+1 (US)</option>
-                                <option value="+44">+44 (UK)</option>
-                                <option value="+91">+91 (India)</option>
-                                <!-- Add more country codes as needed -->
-                            </select>
-                            <input type="text" id="phone-number" placeholder="Phone number" name="phone-number" class="form-control" required>
-                        </div>
-                    </div>
-                    <div id="content">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <input type="date" id="input-group" placeholder="Departure Date" name="departure-date" required>
-                    </div>
-                    <div id="content">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        <select id="input-group" name="guests" style="background-color: #444; color: #fff;" required>
-                            <option value="">No. of guests</option>
-                            <option value="1-5">1-5</option>
-                            <option value="6-10">6-10</option>
-                            <option value="11-20">11-20</option>
+            <div class="form-content">
+                <h1 class="form-header">Registration Form</h1>
+                <div class="form-group">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" class="input-field" placeholder="First name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" class="input-field" placeholder="Last name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <div class="input-group">
+                        <select id="country-code" name="country-code" class="select-container" required>
+                            <option value="">CC</option>
+                            <option value="+1">+1 (US)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+91">+91 (India)</option>
+                            <!-- Add more country codes as needed -->
                         </select>
+                        <input type="text" class="input-field" placeholder="Phone number" name="phone-number" required>
                     </div>
                 </div>
-                <div id="content">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <input type="email" id="input-group" placeholder="Email" name="email" required>
-                </div>
-                <div id="content">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    <input type="date" id="input-group" placeholder="Arrival Date" name="arrival-date" required>
-                </div>
-                <div id="content">
+                <div class="form-group">
                     <i class="fa fa-users" aria-hidden="true"></i>
-                    <select id="input-group" name="room-type" style="background-color: #444; color: #fff;" required>
+                    <select class="input-field" name="guests" required>
+                        <option value="">No. of guests</option>
+                        <option value="1-5">1-5</option>
+                        <option value="6-10">6-10</option>
+                        <option value="11-20">11-20</option>
+                    </select>
+                </div>
+                <div class="form-group date-group">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <div>
+                        <h3 class="date-heading">Arrival Date</h3>
+                        <input type="date" class="input-field date-input" name="arrival-date" required>
+                    </div>
+                </div>
+                <div class="form-group date-group">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <div>
+                        <h3 class="date-heading">Departure Date</h3>
+                        <input type="date" class="input-field date-input" name="departure-date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <input type="email" class="input-field" placeholder="Email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <select class="input-field" name="room-type" required>
                         <option value="">Room Type</option>
                         <option value="AC">AC</option>
                         <option value="Non-AC">Non-AC</option>
@@ -67,9 +71,9 @@
                         <option value="Double Bed">Double Bed</option>
                     </select>
                 </div>
-                <div id="content">
+                <div class="form-group">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <select id="input-group" name="place-to-visit" style="background-color: #444; color: #fff;" required>
+                    <select class="input-field" name="place-to-visit" required>
                         <option value="">Place to Visit</option>
                         <option value="Beach House">Beach House</option>
                         <option value="Delta Forest">Delta Forest</option>
@@ -79,7 +83,7 @@
                         <option value="Singapore">Singapore</option>
                     </select>
                 </div>
-                <button type="submit" id="submit-btn">Register Now</button>
+                <button type="submit" class="submit-button">Register Now</button>
             </div>
         </form>
     </div>
@@ -90,7 +94,7 @@
             event.preventDefault();
 
             // Get the phone number input value
-            var phoneNumber = document.getElementById('phone-number').value;
+            var phoneNumber = document.querySelector('input[name="phone-number"]').value;
 
             // Check if the phone number is exactly 10 digits
             if (phoneNumber.length !== 10) {
