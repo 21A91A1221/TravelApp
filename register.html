@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="registerform.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="form-container">
@@ -29,7 +30,6 @@
                             <option value="+1">+1 (US)</option>
                             <option value="+44">+44 (UK)</option>
                             <option value="+91">+91 (India)</option>
-                            <!-- Add more country codes as needed -->
                         </select>
                         <input type="text" class="input-field" placeholder="Phone number" name="phone-number" required>
                     </div>
@@ -90,32 +90,53 @@
 
     <script>
         document.getElementById('register-form').addEventListener('submit', function(event) {
-            // Prevent the default form submission
             event.preventDefault();
 
-            // Get the phone number input value
-            var phoneNumber = document.querySelector('input[name="phone-number"]').value;
+            // Get form values
+            const firstName = document.querySelector('input[name="first-name"]').value;
+            const lastName = document.querySelector('input[name="last-name"]').value;
+            const countryCode = document.querySelector('select[name="country-code"]').value;
+            const phoneNumber = document.querySelector('input[name="phone-number"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const guests = document.querySelector('select[name="guests"]').value;
+            const arrivalDate = document.querySelector('input[name="arrival-date"]').value;
+            const departureDate = document.querySelector('input[name="departure-date"]').value;
+            const roomType = document.querySelector('select[name="room-type"]').value;
+            const placeToVisit = document.querySelector('select[name="place-to-visit"]').value;
 
-            // Check if the phone number is exactly 10 digits
-            //if (phoneNumber.length !== 10) {
-              //  alert('Invalid number. Please enter a 10-digit phone number.');
-               // return;
-            //}
-
-            // Check if the form is valid
-            if (this.checkValidity()) {
-                // Display a success message
-                alert('Successfully Registered!');
-                
-                // Optionally, clear the form fields
-                this.reset();
-                
-                // Redirect to the home page
-                window.location.href = 'index.html';
-            } else {
-                // If the form is not valid, show validation messages
-                this.reportValidity();
+            // Phone number validation
+            if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
+                alert('Invalid number. Please enter a 10-digit phone number.');
+                return;
             }
+
+            // Using jsPDF to create PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text("Registration Details", 10, 10);
+            doc.text(`First Name: ${firstName}`, 10, 20);
+            doc.text(`Last Name: ${lastName}`, 10, 30);
+            doc.text(`Country Code: ${countryCode}`, 10, 40);
+            doc.text(`Phone Number: ${phoneNumber}`, 10, 50);
+            doc.text(`Email: ${email}`, 10, 60);
+            doc.text(`No. of Guests: ${guests}`, 10, 70);
+            doc.text(`Arrival Date: ${arrivalDate}`, 10, 80);
+            doc.text(`Departure Date: ${departureDate}`, 10, 90);
+            doc.text(`Room Type: ${roomType}`, 10, 100);
+            doc.text(`Place to Visit: ${placeToVisit}`, 10, 110);
+
+            // Save the PDF
+            doc.save("Registration_Details.pdf");
+
+            // Show success message
+            alert('Successfully Registered! PDF downloaded.');
+
+            // Clear form
+            this.reset();
+
+            // Redirect to the home page
+            window.location.href = 'index.html';
         });
     </script>
 </body>
