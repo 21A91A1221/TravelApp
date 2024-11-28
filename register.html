@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <div class="form-container">
@@ -110,21 +111,42 @@
                 return;
             }
 
-            // Using jsPDF to create PDF
+            // Using jsPDF to create a formatted PDF
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            doc.text("Registration Details", 10, 10);
-            doc.text(`First Name: ${firstName}`, 10, 20);
-            doc.text(`Last Name: ${lastName}`, 10, 30);
-            doc.text(`Country Code: ${countryCode}`, 10, 40);
-            doc.text(`Phone Number: ${phoneNumber}`, 10, 50);
-            doc.text(`Email: ${email}`, 10, 60);
-            doc.text(`No. of Guests: ${guests}`, 10, 70);
-            doc.text(`Arrival Date: ${arrivalDate}`, 10, 80);
-            doc.text(`Departure Date: ${departureDate}`, 10, 90);
-            doc.text(`Room Type: ${roomType}`, 10, 100);
-            doc.text(`Place to Visit: ${placeToVisit}`, 10, 110);
+            doc.setFontSize(16);
+            doc.text("Registration Details", 14, 20);
+            doc.setFontSize(12);
+
+            // Adding a table for better alignment
+            doc.autoTable({
+                startY: 30,
+                head: [['Field', 'Details']],
+                body: [
+                    ['First Name', firstName],
+                    ['Last Name', lastName],
+                    ['Country Code', countryCode],
+                    ['Phone Number', phoneNumber],
+                    ['Email', email],
+                    ['No. of Guests', guests],
+                    ['Arrival Date', arrivalDate],
+                    ['Departure Date', departureDate],
+                    ['Room Type', roomType],
+                    ['Place to Visit', placeToVisit],
+                ],
+                theme: 'grid',
+                styles: {
+                    halign: 'center',
+                    valign: 'middle',
+                    fontSize: 10,
+                },
+                headStyles: {
+                    fillColor: [41, 128, 185],
+                    textColor: [255, 255, 255],
+                    fontStyle: 'bold',
+                },
+            });
 
             // Save the PDF
             doc.save("Registration_Details.pdf");
