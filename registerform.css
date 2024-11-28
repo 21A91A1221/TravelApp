@@ -16,6 +16,8 @@ body {
     background: rgba(0, 0, 0, 0.9); /* Darker transparent background for better visibility */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 600px; /* Fixed height for the form container */
+    overflow-y: auto; /* Enables vertical scrollbar for the form content */
 }
 
 /* Form elements styling */
@@ -110,5 +112,19 @@ body {
 }
 
 .submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Add a custom scrollbar for better styling */
+.form-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.form-container::-webkit-scrollbar-thumb:hover {
     background-color: #0056b3;
 }
